@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class SanPham extends Model
 {
+    use HasFactory;
+
     protected $table = 'san_pham';
 
     protected $primaryKey = 'ma_san_pham';
 
     protected $fillable = [
-        'id',
         'ma_san_pham',
         'ten_san_pham',
         'gia',
@@ -23,5 +24,5 @@ class SanPham extends Model
         'ma_loai',
     ];
 
-    use HasFactory;
+
 }

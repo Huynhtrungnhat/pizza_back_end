@@ -13,7 +13,7 @@ class khach_hang extends Model
     protected $fillable=[
         'ma_khach_hang',
         'ten_khach_hang',
-        'dia_chi',
+        'diachi',
         'sdt',
         'diem_mua_hang',
     ];
