@@ -29,11 +29,7 @@ class KhuyenMai extends Model
         'ap_dung_den_ngay' => 'integer',
     ];
 
-<<<<<<< HEAD
     public static function danhSachDoiTuongApDung()
-=======
-    public function danhSachDoiTuongApDung()
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     {
         return [
             static::DOI_TUONG_AP_DUNG_COMBO         =>      'Combo',
@@ -42,11 +38,7 @@ class KhuyenMai extends Model
         ];
     }
 
-<<<<<<< HEAD
     public static function danhSachLoaiGiaTri()
-=======
-    public function danhSachLoaiGiaTri()
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     {
         return [
             static::LOAI_GIA_TRI_PHAN_TRAM         =>      'Phần trăm',
