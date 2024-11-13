@@ -54,6 +54,7 @@ class SanPhamController extends Controller
         return response()->json([
             'message' => 'Cập nhật sản phẩm thành công',
             'data' => $sanPham,
+            
         ], 200);
     }
 

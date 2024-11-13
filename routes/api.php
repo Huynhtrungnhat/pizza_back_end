@@ -26,6 +26,7 @@ Route::prefix('user')->group(function () {
     Route::post('/', [UserController::class, 'themNguoiDung']);
     Route::get('/', [UserController::class, 'layNguoiDung']);
     Route::get('/{id}', [UserController::class, 'layNguoiDungTheoId']);
+    
     Route::put('/{id}', [UserController::class, 'CapnhatthongtinUser']);
 });
 Route::prefix('nhanvien')->group(function () {
