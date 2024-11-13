@@ -48,13 +48,14 @@ class UserController extends Controller
     {
         // Lấy tất cả các tham số từ request
         $params = $request->all();
+        
         // Kiểm tra xem sản phẩm có tồn tại trong cơ sở dữ liệu không
         $User = User::find($id);
 
         if (!$User) {
             return response()->json([
                 'message' => 'San pham không tồn tại',
-                
+
             ], 404);
         }
 
