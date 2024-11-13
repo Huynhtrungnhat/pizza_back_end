@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+<<<<<<< HEAD
         Schema::create('hoa_don', function (Blueprint $table) {
+=======
+        Schema::create('hoa_dons', function (Blueprint $table) {
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
             $table->id('ma_hoa_don')->nullable();
             $table->timestamp('ngay_lap_hd')->nullable();
             $table->decimal('tong_tien,',10,2)->nullable();
@@ -26,6 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+<<<<<<< HEAD
         Schema::dropIfExists('hoa_don');
+=======
+        Schema::dropIfExists('hoa_dons');
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     }
 };

@@ -14,7 +14,11 @@ class UserController extends Controller
         $params = $request->all();
         $params['password'] = Hash::make($params['password']);
 
+<<<<<<< HEAD
         $result = User::create($params);
+=======
+        $result = User::find($params);
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
 
         if(!$result)
         {
@@ -29,9 +33,15 @@ class UserController extends Controller
         ], 201);
     }
 
+<<<<<<< HEAD
     public function layNguoiDung(Request $request){
 
         $result = User::all();
+=======
+    public function layNguoiDung(Request $request, $id){
+
+        $result = User::where('email', '=', 'trong@example.com')->first();
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
 
         if(!$result)
         {
@@ -44,6 +54,7 @@ class UserController extends Controller
             'user' => $result,
         ], 201);
     }
+<<<<<<< HEAD
     public function CapnhatthongtinUser(Request $request, $id)
     {
         // Lấy tất cả các tham số từ request
@@ -84,4 +95,6 @@ class UserController extends Controller
 
 
 
+=======
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
 }

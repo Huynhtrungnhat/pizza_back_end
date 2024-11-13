@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class KhachHangController extends Controller
 {
+<<<<<<< HEAD
     /**
      * Display a listing of the resource.
      */
@@ -62,5 +63,39 @@ class KhachHangController extends Controller
     public function destroy(khach_hang $khach_hang)
     {
         //
+=======
+    public function themKhachhang(Request $request){
+        $params = $request->all();
+
+        $result = khach_hang::create($params);
+
+        if(!$result)
+        {
+            return response()->json([
+                'message' => 'Them khach hang that bai'
+            ], 500);
+        }
+        // unset($params['password']);
+        return response()->json([
+            'message' => 'Them khach hang thanh cong',
+            'data' => $result,
+        ], 201);
+    }
+
+    public function layKhachhang(){
+
+        $result = khach_hang::all();
+
+        if(!$result)
+        {
+            return response()->json([
+                'message' => 'Khong co san pham'
+            ], 500);
+        }
+        // unset($params['password']);
+        return response()->json([
+            'data' => $result,
+        ], 201);
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     }
 }

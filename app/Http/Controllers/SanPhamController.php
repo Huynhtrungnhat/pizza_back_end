@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\SanPham;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+=======
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
 
 class SanPhamController extends Controller
 {
@@ -28,6 +33,7 @@ class SanPhamController extends Controller
         return response()->json([
             'message' => 'Them san pham thanh cong',
             'data' => $result,
+<<<<<<< HEAD
         ], 201);
     }
 
@@ -61,6 +67,11 @@ class SanPhamController extends Controller
 
 
 
+=======
+        ], 200);
+    }
+
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     public function laySanpham()
     {
 
@@ -74,6 +85,7 @@ class SanPhamController extends Controller
         // unset($params['password']);
         return response()->json([
             'data' => $result,
+<<<<<<< HEAD
         ], 201);
     }
     public function laySanphamTheoId(Request $request, $id)
@@ -104,10 +116,28 @@ class SanPhamController extends Controller
             }
 
             // Replace spaces with plus signs and decode the base64 string
+=======
+        ], 200);
+    }
+    private function saveImage($image)
+    {
+        // Check if image is valid base64 string
+        if (preg_match('/^data:image\/(\w+);base64,/', $image, $type)) {
+            // Take out the base64 encoded text without mime type
+            $image = substr($image, strpos($image, ',') + 1);
+            // Get file extension
+            $type = strtolower($type[1]); // jpg, png, gif
+
+            // Check if file is an image
+            if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
+                throw new \Exception('invalid image type');
+            }
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
             $image = str_replace(' ', '+', $image);
             $image = base64_decode($image);
 
             if ($image === false) {
+<<<<<<< HEAD
                 throw new \Exception('Base64 decode failed');
             }
         } else {
@@ -123,5 +153,23 @@ class SanPhamController extends Controller
 
         // Return the public URL to the saved image
         return Storage::url($filePath);
+=======
+                throw new \Exception('base64_decode failed');
+            }
+        } else {
+            throw new \Exception('did not match data URI with image data');
+        }
+
+        $dir = 'storage/images/';
+        $file = Str::random() . '.' . $type;
+        $absolutePath = public_path($dir);
+        $relativePath = $dir . $file;
+        if (!File::exists($absolutePath)) {
+            File::makeDirectory($absolutePath, 0755, true);
+        }
+        file_put_contents($relativePath, $image);
+
+        return $relativePath;
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     }
 }

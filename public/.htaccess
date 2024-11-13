@@ -3,6 +3,15 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+<<<<<<< HEAD
+=======
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, X-CSRF-TOKEN"
+    </IfModule>
+
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     RewriteEngine On
 
     # Handle Authorization Header
@@ -19,3 +28,7 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0

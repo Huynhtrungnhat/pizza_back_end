@@ -20,8 +20,11 @@ return new class extends Migration
             $table->integer('ma_loai_san_pham')->nullable();
             $table->string('hinh_anh')->nullable();
             $table->integer('ma_loai')->nullable();
+<<<<<<< HEAD
             $table->enum('loai_khuyen_mai', array('PHANTRAM', 'GIATRI'))->nullable()->nullable();
             $table->string('gia_tri_khuyen_mai')->nullable();
+=======
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
             $table->timestamps();
         });
     }

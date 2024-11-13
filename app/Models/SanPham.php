@@ -22,8 +22,15 @@ class SanPham extends Model
         'ma_loai_san_pham',
         'hinh_anh',
         'ma_loai',
+<<<<<<< HEAD
         'loai_khuyen_mai',
         'gia_tri_khuyen_mai',
     ];
 }
 
+=======
+    ];
+
+
+}
+>>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
