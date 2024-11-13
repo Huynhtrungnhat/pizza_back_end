@@ -26,3 +26,4 @@ class SanPham extends Model
         'gia_tri_khuyen_mai',
     ];
 }
+

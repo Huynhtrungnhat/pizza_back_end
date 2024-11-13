@@ -26,6 +26,7 @@ Route::prefix('user')->group(function () {
     Route::post('/', [UserController::class, 'themNguoiDung']);
     Route::get('/', [UserController::class, 'layNguoiDung']);
     Route::get('/{id}', [UserController::class, 'layNguoiDungTheoId']);
+    Route::put('/{id}', [UserController::class, 'CapnhatthongtinUser']);
 });
 Route::prefix('nhanvien')->group(function () {
     Route::post('/', [NhanVienController::class, 'themNhanVien']);
@@ -45,7 +46,7 @@ Route::prefix('CTHoaDon')->group(function () {
 Route::prefix('sanpham')->group(function () {
     Route::get('/', [SanPhamController::class, 'laySanpham']);
     Route::post('/', [SanPhamController::class, 'themSanpham']);
-    Route::put('/{id}', [SanPhamController::class, 'capnhatcapNhatSanpham']);
+    Route::put('/{id}', [SanPhamController::class, 'capNhatSanpham']); //Lậy anh Nhật :)))
     Route::get('/{id}', [SanPhamController::class, 'laySanphamTheoId']);
 
 });

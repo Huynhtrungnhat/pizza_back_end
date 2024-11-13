@@ -44,6 +44,27 @@ class UserController extends Controller
             'user' => $result,
         ], 201);
     }
+    public function CapnhatthongtinUser(Request $request, $id)
+    {
+        // Lấy tất cả các tham số từ request
+        $params = $request->all();
+        // Kiểm tra xem sản phẩm có tồn tại trong cơ sở dữ liệu không
+        $User = User::find($id);
+
+        if (!$User) {
+            return response()->json([
+                'message' => 'San pham không tồn tại',
+            ], 404);
+        }
+
+        // Cập nhật các thông tin của sản phẩm
+        $User->update($params);
+
+        return response()->json([
+            'message' => 'Cập nhật sản phẩm thành công',
+            'data' => $User,
+        ], 200);
+    }
     public function layNguoiDungTheoId(Request $request, $id)
 {
     $result = User::find($id);

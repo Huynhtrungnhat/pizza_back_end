@@ -30,33 +30,32 @@ class SanPhamController extends Controller
             'data' => $result,
         ], 201);
     }
+
     public function capNhatSanpham(Request $request, $id)
-{
-    // Lấy tất cả các tham số từ request
-    $params = $request->all();
+    {
+        // Lấy tất cả các tham số từ request
+        $params = $request->all();
+        // Kiểm tra xem sản phẩm có tồn tại trong cơ sở dữ liệu không
+        $sanPham = SanPham::find($id);
 
-    // Kiểm tra xem sản phẩm có tồn tại trong cơ sở dữ liệu không
-    $sanPham = SanPham::find($id);
+        if (!$sanPham) {
+            return response()->json([
+                'message' => 'San pham không tồn tại',
+            ], 404);
+        }
+        // Nếu có ảnh mới, lưu ảnh đó
+        // Nếu hình ảnh không thay đổi thì sao -> giữ lại đường dẫn hình ảnh cũ
+        if (isset($params['hinh_anh'])) {
+            $params['hinh_anh'] = $this->saveImage($params['hinh_anh']);
+        }
+        // Cập nhật các thông tin của sản phẩm
+        $sanPham->update($params);
 
-    if (!$sanPham) {
         return response()->json([
-            'message' => 'San pham không tồn tại',
-        ], 404);
+            'message' => 'Cập nhật sản phẩm thành công',
+            'data' => $sanPham,
+        ], 200);
     }
-
-    // Nếu có ảnh mới, lưu ảnh đó
-    if (isset($params['hinh_anh'])) {
-        $params['hinh_anh'] = $this->saveImage($params['hinh_anh']);
-    }
-
-    // Cập nhật các thông tin của sản phẩm
-    $sanPham->update($params);
-
-    return response()->json([
-        'message' => 'Cập nhật sản phẩm thành công',
-        'data' => $sanPham,
-    ], 200);
-}
 
 
     public function laySanpham()
