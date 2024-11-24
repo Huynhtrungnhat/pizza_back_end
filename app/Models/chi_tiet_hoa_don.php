@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class chi_tiet_hoa_don extends Model
 {
-<<<<<<< HEAD
     use HasFactory;
-=======
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     protected $table = 'chi_tiet_hoa_don';
 
     protected $primaryKey = 'ma_chi_tiet_hoa_don';
@@ -25,9 +22,7 @@ class chi_tiet_hoa_don extends Model
         'gia_khuyen_mai',
 
     ];
-<<<<<<< HEAD
-
-=======
-    use HasFactory;
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
+    public function maSanPham(){
+        return $this->belongsTo(SanPham::class, 'ma_san_pham', 'ma_san_pham');
+    }
 }

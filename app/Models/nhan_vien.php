@@ -14,7 +14,6 @@ class nhan_vien extends Model
     protected $primaryKey = 'ma_nhan_vien';
 
     protected $fillable = [
-        'ma_nhan_vien',
         'ten_nhan_vien',
         'ma_loai_nhan_vien',
         'gioi_tinh',

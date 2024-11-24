@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class hoa_don extends Model
 {
+    use HasFactory;
+
     protected $table = 'hoa_don';
 
     protected $primaryKey = 'ma_hoa_don';
@@ -17,6 +19,10 @@ class hoa_don extends Model
         'tong_tien',
         'ma_nhan_vien',
         'ma_khach_hang',
+        'trang_Thai'
     ];
-    use HasFactory;
+
+    public function maKhachHang(){
+        return $this->belongsTo(khach_hang::class, 'ma_khach_hang', 'ma_khach_hang');
+    }
 }

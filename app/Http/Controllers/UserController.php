@@ -44,11 +44,34 @@ class UserController extends Controller
             'user' => $result,
         ], 201);
     }
+    public function Capnhatquyenusser(Request $request, $id)
+    {
+        $params = $request->all();
+
+        $quyennv = $request->input('quyen');
+
+        $user = User::where('id', $id)->first();
+
+        $user->quyen = $quyennv;
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Khach hang không tồn tại',
+            ], 404);
+        }
+
+        $user->update($params);
+
+        return response()->json([
+            'message' => 'Cập nhật khách hàng thành công',
+            'data' => $user,
+        ], 200);
+    }
     public function CapnhatthongtinUser(Request $request, $id)
     {
         // Lấy tất cả các tham số từ request
         $params = $request->all();
-        
+
         // Kiểm tra xem sản phẩm có tồn tại trong cơ sở dữ liệu không
         $User = User::find($id);
 

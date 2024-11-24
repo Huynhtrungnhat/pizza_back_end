@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorekhuyenmaiRequest;
 use App\Http\Requests\UpdatekhuyenmaiRequest;
 use Carbon\Carbon;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
+
+// use Illuminate\Http\Client\Request;
 
 class KhuyenmaiController extends Controller
 {
@@ -29,12 +31,12 @@ class KhuyenmaiController extends Controller
 
         if (!$result) {
             return response()->json([
-                'message' => 'Them san pham that bai'
+                'message' => 'Them khuyến mãi that bai'
             ], 500);
         }
         // unset($params['password']);
         return response()->json([
-            'message' => 'Them san pham thanh cong',
+            'message' => 'Them Khuyến mãi  thanh cong',
             'data' => $result,
         ], 201);
     }
@@ -86,5 +88,18 @@ class KhuyenmaiController extends Controller
         }
         return $result;
 
+    }
+
+    public function layDanhSachKhuyenMaiChoHoaDon()
+    {
+        try {
+            $khuyenMais = khuyenmai::where('doi_tuong_ap_dung', khuyenmai::DOI_TUONG_AP_DUNG_HOADON)->where('trang_thai', 1)->get();
+
+            return response()->json([
+                'data' => $khuyenMais
+            ], 200);
+        } catch (\Exception $ex) {
+            //throw $th;
+        }
     }
 }

@@ -24,10 +24,10 @@ class KhuyenMai extends Model
         'trang_thai',
     ];
 
-    protected $casts = [
-        'ap_dung_tu_ngay' => 'integer',
-        'ap_dung_den_ngay' => 'integer',
-    ];
+    // protected $casts = [
+    //     'ap_dung_tu_ngay' => 'integer',
+    //     'ap_dung_den_ngay' => 'integer',
+    // ];
 
     public static function danhSachDoiTuongApDung()
     {

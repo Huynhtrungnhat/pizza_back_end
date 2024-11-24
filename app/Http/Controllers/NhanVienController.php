@@ -8,76 +8,70 @@ use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
 {
-<<<<<<< HEAD
-    public function themNhanVien(Request $request){
-        $params = $request->all();
-        $result = nhan_vien::create($params);
+    public function themnhanvien(Request $request)
+    {
+
+        $nhanvien = $request->all();
+
+        $result = nhan_vien::create($nhanvien);
+
+        if(!$result){
+            return response()->json([
+                'message' => 'Thêm nhân viên that bai.'
+            ], 500);
+        }
+
+        return response()->json([
+            'message' => 'thêm nhân viên thanh cong.',
+            'data' => $result,
+        ], 201);
+    }
+    public function laynhanvien(Request $request){
+
+        $result = nhan_vien::all();
 
         if(!$result)
         {
             return response()->json([
-                'message' => 'Them nhan vien that bai'
+                'message' => 'Khong tim thay thong tin'
             ], 500);
         }
         return response()->json([
-            'message' => 'Them nhan vien thanh cong',
-            'user' => $result,
+            'nhanvien' => $result,
         ], 201);
-=======
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    }
+    public function laynhanvienTheoId(Request $request, $id)
+{
+    $result = nhan_vien::where('ma_nhan_vien', $id)->first();
+
+    if (!$result) {
+        return response()->json([
+            'message' => 'Khong tim thay thong tin'
+        ], 404);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    return response()->json([
+        'nhanvien' => $result,
+    ], 201);
+}
+public function capnhatnhanvien(Request $request, $id)
+{
+    $params = $request->all();
+
+    $khachhang = nhan_vien::where('ma_nhan_vien', $id)->first();
+
+    if (!$khachhang) {
+        return response()->json([
+            'message' => 'nhân viên không tồn tại',
+        ], 404);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    $khachhang->update($params);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(nhan_vien $nhan_vien)
-    {
-        //
-    }
+    return response()->json([
+        'message' => 'Cập nhật khách hàng thành công',
+        'khachhang' => $khachhang,
+    ], 200);
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(nhan_vien $nhan_vien)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, nhan_vien $nhan_vien)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(nhan_vien $nhan_vien)
-    {
-        //
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
-    }
 }

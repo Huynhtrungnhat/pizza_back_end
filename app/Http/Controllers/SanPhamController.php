@@ -52,12 +52,13 @@ class SanPhamController extends Controller
         $sanPham->update($params);
 
         return response()->json([
-            
+
             'message' => 'Cập nhật sản phẩm thành công',
             'data' => $sanPham,
 
         ], 200);
     }
+
 
 
 
@@ -124,4 +125,5 @@ class SanPhamController extends Controller
         // Return the public URL to the saved image
         return Storage::url($filePath);
     }
+    
 }

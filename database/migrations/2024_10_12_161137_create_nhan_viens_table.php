@@ -11,11 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-<<<<<<< HEAD
         Schema::create('nhan_vien', function (Blueprint $table) {
-=======
-        Schema::create('nhan_viens', function (Blueprint $table) {
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
             $table->id('ma_nhan_vien')->nullable();
             $table->string('ten_nhan_vien')->nullable();
             $table->integer('ma_loai_nhan_vien')->nullable();
@@ -34,10 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-<<<<<<< HEAD
         Schema::dropIfExists('nhan_vien');
-=======
-        Schema::dropIfExists('nhan_viens');
->>>>>>> c567d4b8ac437e68547e47e7191e9176c7670dc0
     }
 };

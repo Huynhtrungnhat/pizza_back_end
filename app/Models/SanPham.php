@@ -25,5 +25,6 @@ class SanPham extends Model
         'loai_khuyen_mai',
         'gia_tri_khuyen_mai',
     ];
+
 }
 
